@@ -1,0 +1,32 @@
+h1,
+.rte h1,
+h2,
+.rte h2,
+h3,
+.rte h3,
+h4,
+.rte h4,
+h5,
+.rte h5,
+h6,
+.rte h6 {
+  font-weight: normal;
+  font-family: "Helvetica Neue LT W01_71488914", "Helvetica Bold", "Arial Bold", sans-serif;
+}
+
+/*.textImage .ti {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+}
+
+.textImage .ti-text {
+  margin: auto;
+  padding-left: calc(.625rem + 15px);
+  padding-right: calc(.625rem + 15px);
+  width: 100%;
+  max-width: 74.375rem;
+}*/
