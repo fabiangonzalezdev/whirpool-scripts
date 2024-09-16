@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whirlpool Videos</title>
+    <link href="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/files/smart-video-qr/smart-video-qr.css?v32" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.whirlpool.com/content/dam/business-unit/whirlpoolv2/en-us/marketing-content/site-assets/page-content/assets/css/oc-temp-overrides.css?cache=1" />
+    <link rel="stylesheet" href="https://www.whirlpool.com/content/dam/business-unit/whirlpoolv2/en-us/marketing-content/site-assets/page-content/assets/css/app-tinyurl.css?cache=4" />
+    <style>
+        .ModalNew {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+        }
+
+        .modal-content video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .closeButton {
+            position: absolute;
+            top: 150px;
+            right: 1px;
+            font-size: 32px;
+            background-color: rgba(238, 177, 17, 0.6);
+         color:#717171;
+            font-weight: 800;
+            border-radius: 50%;
+            padding: 6px;
+            width: 40px;
+            height: 40px;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .closeButton:hover {
+            background-color: #eeb111;
+            opacity: 1;
+            color: black;
+        }
+
+        .image-block__content {
+            cursor: pointer;
+        }
+
+        .image-block__content:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .video-link {
+            display: flex;
+            align-items: center;
+     
+            font-family: 'Arial', sans-serif; 
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .video-link svg {
+            fill: white;
+            margin-right: 10px;
+        }
+
+        .video-link:hover {
+            text-decoration: none;
+        }
+
+        .image-block__content img {
+            width: 100%;
+            height: auto;
+        }
+
+        .VideoBtnText{
+            font-size: 14px;
+            padding-left: 20px;
+            padding-top:4px;
+        }
+    </style>
+</head>
+<body>
+<div id="smart-video-page-wrapper">
+    <article id="smart-video-content">
+        <div class="masthead">
+            <div class="masthead__content">
+                <div class="masthead__content--container" id="masthead-content">
+                    <h1>Made for multitasking</h1>
+                    <p>See how to tackle your to do list with the help of Whirlpool<sup>®</sup> smart cooking features.<sup>1</sup></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Remote Control -->
+        <section id="remote-control">
+            <div>
+                <div class="container">
+                    <div class="image-block">
+                        <div class="image-block__content" onclick="openModal('remoteModal', 'remoteVideo', 'remoteVideoBtnText')">
+                            <picture>
+                                <source srcset="https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/WHP-App-2021-final.jpg?fit&#x3D;constrain&amp;fmt&#x3D;jpg&amp;hei&#x3D;1600&amp;resMode&#x3D;sharp2&amp;utc&#x3D;2021-02-12T20:28:04Z&amp;wid&#x3D;2200">
+                                <img class="image-block-image lazyload" alt="Remote Control">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+                <div class="rich-text__header">
+                    <h3><b>Remote Control</b></h3>
+                    <div class="video-link">
+                        <svg width="20" height="20" fill="white">
+                            <path d="M8 5v14l11-7z"></path> <!-- Ejemplo de ícono Play -->
+                        </svg>
+                        <span id="remoteVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Remote Control -->
+            <div id="remoteModal" class="ModalNew">
+                <div class="modal-content">
+                    <span class="closeButton" onclick="closeModal('remoteModal', 'remoteVideo')">&times;</span>
+                    <video id="remoteVideo" controls>
+                        <source src="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/videos/RemoteControl-MASTER-VERTICAL-WithSubtitles.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voice Control Google -->
+        <section id="voice-control-google">
+            <div>
+                <div class="container">
+                    <div class="image-block">
+                        <div class="image-block__content" onclick="openModal('googleModal', 'googleVideo', 'googleVideoBtnText')">
+                            <picture>
+                                <source srcset="https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/Google-2021.jpg">
+                                <img class="image-block-image lazyload" alt="Voice Control Google">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+                <div class="rich-text__header">
+                    <h3><b>Voice Control Google</b></h3>
+                    <div class="video-link">
+                        <svg width="20" height="20" fill="white">
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                        <span id="googleVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Voice Control Google -->
+            <div id="googleModal" class="ModalNew">
+                <div class="modal-content">
+                    <span class="closeButton" onclick="closeModal('googleModal', 'googleVideo')">&times;</span>
+                    <video id="googleVideo" controls>
+                        <source src="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/videos/VoiceControl-Google-MASTER-VERTICAL-WithSubtitles.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Voice Control Alexa -->
+        <section id="voice-control-alexa">
+            <div>
+                <div class="container">
+                    <div class="image-block">
+                        <div class="image-block__content" onclick="openModal('alexaModal', 'alexaVideo', 'alexaVideoBtnText')">
+                            <picture>
+                                <source srcset="https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/Alexa-2021.jpg?fit&#x3D;constrain&amp;fmt&#x3D;jpg&amp;hei&#x3D;1600&amp;resMode&#x3D;sharp2&amp;utc&#x3D;2021-02-12T20:28:04Z&amp;wid&#x3D;2200">
+                            <img data-src="https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/Alexa-2021.jpg?fit&#x3D;constrain&amp;fmt&#x3D;jpg&amp;hei&#x3D;1600&amp;resMode&#x3D;sharp2&amp;utc&#x3D;2021-02-12T20:28:04Z&amp;wid&#x3D;2200" class="image-block-image lazyload" alt="" />
+                          </picture>
+                        </div>
+                    </div>
+                </div>
+                <div class="rich-text__header">
+                    <h3><b>Voice Control Alexa</b></h3>
+                    <div class="video-link">
+                        <svg width="20" height="20" fill="white">
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                        <span id="alexaVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Voice Control Alexa -->
+            <div id="alexaModal" class="ModalNew">
+                <div class="modal-content">
+                    <span class="closeButton" onclick="closeModal('alexaModal', 'alexaVideo')">&times;</span>
+                    <video id="alexaVideo" controls>
+                        <source src="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/videos/VoiceControl-Alexa-MASTER-VERTICAL-WithSubtitles.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guided Cooking -->
+        <section id="guided-cooking">
+            <div>
+                <div class="container">
+                    <div class="image-block">
+                        <div class="image-block__content" onclick="openModal('cookingModal', 'cookingVideo', 'cookingVideoBtnText')">
+                            <picture>
+                                <source srcset="https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/yummly-guided-cooking.jpg">
+                                <img class="image-block-image lazyload" alt="Guided Cooking">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+                <div class="rich-text__header">
+                    <h3><b>Guided Cooking</b></h3>
+                    <div class="video-link">
+                        <svg width="20" height="20" fill="white">
+                            <path d="M8 5v14l11-7z"></path>
+                        </svg>
+                        <span id="cookingVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal for Guided Cooking -->
+            <div id="cookingModal" class="ModalNew">
+                <div class="modal-content">
+                    <span class="closeButton" onclick="closeModal('cookingModal', 'cookingVideo')">&times;</span>
+                    <video id="cookingVideo" controls>
+                        <source src="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/videos/GuidedCooking-MASTER-VERTICAL-WithSubtitles-new.mp4" type="video/mp4" />
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section id="closing-statement">
+            <div class="rich-text__header text-center headline-center">
+                <h3>Master multitasking</h3>
+                <p>Get more done at once with smart cooking appliances.</p>
+            </div>
+            <div class="rich-text__header text-center headline-center">
+                <p>Ask a sales associate to show you the smart ranges and microwaves available from Whirlpool.</p>
+            </div>
+        </section>
+    </article>
+
+    <!-- JavaScript for Modal Functionality -->
+    <script>
+        function openModal(modalId, videoId, btnTextId) {
+            const modal = document.getElementById(modalId);
+            const video = document.getElementById(videoId);
+            modal.style.display = "flex";
+
+            const videoSeen = localStorage.getItem(`${videoId}Seen`);
+            if (videoSeen === "true") {
+                document.getElementById(btnTextId).innerText = "Play Again";
+            }
+
+            video.play().catch(function(error) {
+                console.error("Error playing the video: ", error);
+            });
+
+            video.onended = function () {
+                localStorage.setItem(`${videoId}Seen`, "true");
+                document.getElementById(btnTextId).innerText = "Play Again";
+            };
+        }
+
+        function closeModal(modalId, videoId) {
+            const modal = document.getElementById(modalId);
+            const video = document.getElementById(videoId);
+            modal.style.display = "none";
+            video.pause();
+            video.currentTime = 0;
+        }
+
+        window.onload = function () {
+            const videoIds = ['remoteVideo', 'googleVideo', 'alexaVideo', 'cookingVideo'];
+            videoIds.forEach(id => {
+                const videoSeen = localStorage.getItem(`${id}Seen`);
+                if (videoSeen === "true") {
+                    document.getElementById(`${id}BtnText`).innerText = "Play Again";
+                }
+            });
+        };
+    </script>
+</div>
+</body>
+</html>

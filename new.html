@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Modal Example</title>
+  <style>
+    /* Estilo del modal */
+    .ModalNew {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Asegurar que el contenido esté centrado */
+    .modal-content {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+    }
+
+    .modal-content video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .closeButton {
+      position: absolute;
+      top: 100px;
+      right: 10px;
+      font-size: 32px;
+      background-color: rgba(238, 177, 17, 0.6); /* Semitransparente (60%) */
+      color: black;
+      font-weight: 800;
+      border-radius: 50%;
+      padding: 10px;
+      width: 28px;
+      height: 28px;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .closeButton:hover {
+      background-color: #eeb111;
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <article id="smart-video-content">
+    <div class="masthead">
+      <div class="masthead__content">
+        <div class="masthead__content--container" id="masthead-content">
+          <h1>Made for multitasking</h1>
+          <p>See how to tackle your to-do list with the help of Whirlpool<sup>®</sup> smart cooking features.<sup>1</sup></p>
+        </div>
+      </div>
+    </div>
+
+    <section id="remote-control">
+      <div>
+        <div class="container">
+          <div class="image-block">
+            <div class="image-block__content">
+              <picture>
+                <source
+                  srcset="https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/WHP-App-2021-final.jpg"
+                />
+                <img
+                  data-src="https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/Alexa-2021.jpg?fit&#x3D;constrain&amp;fmt&#x3D;jpg&amp;hei&#x3D;1600&amp;resMode&#x3D;sharp2&amp;utc&#x3D;2021-02-12T20:28:04Z&amp;wid&#x3D;2200"
+                  class="image-block-image lazyload"
+                  alt=""
+                />
+              </picture>
+              <button class="btn btn-primary" id="videoBtn" onclick="openModal()">
+                <span id="videoBtnText">Watch Video</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="myModal" class="ModalNew">
+      <div class="modal-content">
+        <span class="closeButton" onclick="closeButtonModal()">&times;</span>
+        <video id="myVideo" controls>
+          <source
+            src="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/videos/RemoteControl-MASTER-VERTICAL-WithSubtitles.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    </div>
+  </article>
+
+  <script>
+    function openModal() {
+      const modal = document.getElementById("myModal");
+      const video = document.getElementById("myVideo");
+
+      modal.style.display = "flex"; // Mostrar el modal
+
+      // Verificar si el video ya ha sido visto
+      const videoSeen = localStorage.getItem("videoSeen");
+
+      if (videoSeen === "true") {
+        document.getElementById("videoBtnText").innerText = "Play Again";
+      }
+
+      video.play().catch(function(error) {
+        console.error("Error al reproducir el video: ", error);
+      });
+
+      video.onended = function () {
+        localStorage.setItem("videoSeen", "true");
+        document.getElementById("videoBtnText").innerText = "Play Again";
+      };
+    }
+
+    function closeButtonModal() {
+      const modal = document.getElementById("myModal");
+      const video = document.getElementById("myVideo");
+      modal.style.display = "none";
+      video.pause();
+      video.currentTime = 0;
+    }
+
+    // Verificar si el video ya fue visto al cargar la página
+    window.onload = function () {
+      const videoSeen = localStorage.getItem("videoSeen");
+
+      if (videoSeen === "true") {
+        document.getElementById("videoBtnText").innerText = "Play Again";
+      }
+    };
+  </script>
+</body>
+</html>
