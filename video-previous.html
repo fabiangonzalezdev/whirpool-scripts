@@ -47,7 +47,7 @@
          color:#717171;
             font-weight: 800;
             border-radius: 50%;
-            padding: 6px;
+            padding: 10px;
             width: 40px;
             height: 40px;
             line-height: 30px;
@@ -133,7 +133,8 @@
                         <svg width="20" height="20" fill="white">
                             <path d="M8 5v14l11-7z"></path> <!-- Ejemplo de ícono Play -->
                         </svg>
-                        <span id="remoteVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                  <span id="remoteVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+<span id="remoteVideoBtnWatchAgain" class="VideoBtnText" style="display: none;"><b>Play Again</b></span>
                     </div>
                 </div>
             </div>
@@ -141,7 +142,8 @@
             <!-- Modal for Remote Control -->
             <div id="remoteModal" class="ModalNew">
                 <div class="modal-content">
-                    <span class="closeButton" onclick="closeModal('remoteModal', 'remoteVideo')">&times;</span>
+                    <span class="closeButton" onclick="closeModal('remoteModal', 'remoteVideo')" ontouchstart="closeModal('remoteModal', 'remoteVideo')">&times;</span>
+
                     <video id="remoteVideo" controls>
                         <source src="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/videos/RemoteControl-MASTER-VERTICAL-WithSubtitles.mp4" type="video/mp4" />
                     </video>
@@ -168,7 +170,8 @@
                         <svg width="20" height="20" fill="white">
                             <path d="M8 5v14l11-7z"></path>
                         </svg>
-                        <span id="googleVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                        <span id="remoteVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                        <span id="remoteVideoBtnWatchAgain" class="VideoBtnText" style="display: none;"><b>Play Again</b></span>
                     </div>
                 </div>
             </div>
@@ -203,7 +206,8 @@
                         <svg width="20" height="20" fill="white">
                             <path d="M8 5v14l11-7z"></path>
                         </svg>
-                        <span id="alexaVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                        <span id="remoteVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                        <span id="remoteVideoBtnWatchAgain" class="VideoBtnText" style="display: none;"><b>Play Again</b></span>
                     </div>
                 </div>
             </div>
@@ -238,7 +242,8 @@
                         <svg width="20" height="20" fill="white">
                             <path d="M8 5v14l11-7z"></path>
                         </svg>
-                        <span id="cookingVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                        <span id="remoteVideoBtnText" class="VideoBtnText"><b>Watch Video</b></span>
+                        <span id="remoteVideoBtnWatchAgain" class="VideoBtnText" style="display: none;"><b>Play Again</b></span>
                     </div>
                 </div>
             </div>
