@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link
+  href="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/files/smart-video-qr/smart-video-qr.css?v32"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://www.whirlpool.com/content/dam/business-unit/whirlpoolv2/en-us/marketing-content/site-assets/page-content/assets/css/oc-temp-overrides.css?cache=1"
+/>
+<link
+  rel="stylesheet"
+  href="https://www.whirlpool.com/content/dam/business-unit/whirlpoolv2/en-us/marketing-content/site-assets/page-content/assets/css/app-tinyurl.css?cache=4"
+/>
+<style>
+  .ModalNew {
+    display: none;
+    position: fixed;
+    z-index: 2000; /* Aumentar el z-index */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  .modal-content video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .closeButton {
+    position: absolute;
+    top: 150px;
+    right: 1px;
+    font-size: 32px;
+    background-color: rgba(238, 177, 17, 0.6);
+    color: #717171;
+    font-weight: 800;
+    border-radius: 50%;
+    padding: 4px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .closeButton:hover {
+    background-color: #eeb111;
+    opacity: 1;
+    color: black;
+  }
+
+
+
+  .video-controls .button {
+    background-color: #eeb111;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    margin: 0 5px;
+    
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .video-controls button:hover {
+    background-color: #eeb111;
+  }
+
+  .rich-text__header {
+    padding-left: 30px;
+    font-size: 20px;
+  }
+
+  .image-block__content {
+    cursor: pointer;
+  }
+
+  .image-block__content:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .video-link {
+    display: flex;
+    align-items: center;
+    font-family: "Arial", sans-serif;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 6px;
+  }
+
+  .video-link svg {
+    fill: white;
+    margin-right: 10px;
+  }
+
+  .video-link:hover {
+    text-decoration: none;
+  }
+
+  .image-block__content img {
+    width: 100%;
+    height: auto;
+  }
+
+  .VideoBtnText {
+    font-size: 14px;
+    padding-left: 20px;
+    padding-top: 4px;
+  }
+
+  .containerVideo {
+    padding: 0px 10px 0px 10px;
+  }
+
+  @media (min-width: 576px) {
+    #smart-video-content {
+      display: none;
+    }
+    .tablet-and-desktop {
+      visibility: visible !important;
+      opacity: 1 !important;
+      z-index: 10 !important;
+    }
+  }
+</style>
+</head>
+<body>
+  
+
+<div id="smart-video-page-wrapper">
+  <!-- Desktop Message -->
+  <div class="desktop-message tablet-and-desktop">
+    <div class="desktop-message--logo">
+      <svg
+        width="164"
+        height="52"
+        viewBox="0 0 164 52"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M2.81143 5.73059C1.1454 5.73059 6.35541e-06 4.48028 6.35541e-06 2.86529C6.35541e-06 1.14612 1.30159 0 2.81143 0C4.32127 0 5.62286 1.14612 5.62286 2.86529C5.62286 4.58447 4.32127 5.73059 2.81143 5.73059ZM2.81143 0.520962C1.56191 0.520962 0.624759 1.51079 0.624759 2.91739C0.624759 4.2198 1.45778 5.31382 2.81143 5.31382C4.06096 5.31382 4.99809 4.32399 4.99809 2.91739C4.99809 1.51079 4.06096 0.520962 2.81143 0.520962ZM2.23873 4.53237H1.7181V1.3545H2.91555C3.6965 1.3545 4.06095 1.61498 4.06095 2.29223C4.06095 2.86529 3.6965 3.12577 3.22793 3.17787L4.11302 4.58447H3.54032L2.7073 3.22997H2.23873V4.53237ZM2.81143 2.709C3.22794 2.709 3.54032 2.65691 3.54032 2.18804C3.54032 1.82337 3.17588 1.77127 2.8635 1.77127H2.23873V2.709H2.81143Z"
+          transform="translate(158.377 5.19312)"
+          fill="black"
+        />
+        <path
+          d="M36.8089 9.93657e-08L28.7911 29.3823H24.1054L18.4305 8.02282L12.7035 29.3823H8.01778L0 9.93657e-08H4.63365L10.3606 21.3074L16.1397 9.93657e-08H20.7213L26.5003 21.3074L32.2273 9.93657e-08H36.8089Z"
+          transform="translate(0 5.60852)"
+          fill="black"
+        />
+        <path
+          d="M0.0520667 0.364674L4.68571 0V7.18928L4.58159 9.89829H4.73778C6.92445 9.06475 8.64254 8.70007 10.7251 8.70007C14.4737 8.70007 16.9727 10.3672 16.9727 16.8271V29.6428H12.339V17.1918C12.339 13.3366 10.4648 12.8157 8.2781 12.8157C6.92444 12.8157 5.77905 13.1283 4.63365 13.4408V29.6428H0V0.364674H0.0520667Z"
+          transform="translate(38.8909 5.35034)"
+          fill="black"
+        />
+        <path
+          d="M2.71142 0C5.10634 0 5.47078 1.4066 5.47078 2.96949C5.47078 4.53237 4.95015 5.93897 2.71142 5.93897C0.420623 5.93897 0.00411719 4.53237 0.00411719 2.96949C-0.0479463 1.4066 0.36856 0 2.71142 0ZM0.36856 8.3354H5.00221V28.9655H0.36856V8.3354Z"
+          transform="translate(59.5564 5.97583)"
+          fill="black"
+        />
+        <path
+          d="M0 0.312577H3.17588L3.80064 1.97966H4.11301C5.31047 0.937733 7.28889 -1.98731e-07 9.78794 -1.98731e-07C10.1003 -1.98731e-07 10.4127 0 10.7771 0.0520962V4.58447C9.94413 4.48028 9.05905 4.32399 8.17397 4.32399C6.92444 4.32399 5.88317 4.63657 4.68571 5.15753V20.9427H0.0520667V0.312577H0Z"
+          transform="translate(68.4634 13.9993)"
+          fill="black"
+        />
+        <path
+          d="M-3.1777e-06 29.6428V0.364674L4.63365 9.93657e-08V29.6428H-3.1777e-06Z"
+          transform="translate(81.167 5.35034)"
+          fill="black"
+        />
+        <path
+          d="M9.31936 0C15.8794 0 18.3784 3.85512 18.3784 10.7318C18.3784 17.1918 16.0356 21.3595 9.21524 21.3595C2.39492 21.3595 0 17.1397 0 10.7318C0.0520635 3.85512 2.75936 0 9.31936 0ZM13.6927 10.7318C13.6927 6.82461 13.0679 3.64674 9.37143 3.64674C5.62286 3.64674 4.68571 6.72042 4.68571 10.7318C4.68571 14.4828 5.46667 17.7127 9.16318 17.7127C12.8597 17.7127 13.6927 14.639 13.6927 10.7318Z"
+          transform="translate(109.333 14.0504)"
+          fill="black"
+        />
+        <path
+          d="M9.31937 0C15.8794 0 18.3784 3.85512 18.3784 10.7318C18.3784 17.1918 16.0356 21.3595 9.21524 21.3595C2.39492 21.3595 1.58885e-06 17.1397 1.58885e-06 10.7318C0.0520651 3.85512 2.75937 0 9.31937 0ZM13.6927 10.7318C13.6927 6.82461 13.0679 3.64674 9.37142 3.64674C5.62285 3.64674 4.68571 6.72042 4.68571 10.7318C4.68571 14.4828 5.46666 17.7127 9.16317 17.7127C12.8597 17.7127 13.6927 14.639 13.6927 10.7318Z"
+          transform="translate(130.055 14.0504)"
+          fill="black"
+        />
+        <path
+          d="M-3.1777e-06 29.6428V0.364674L4.63365 9.93657e-08V29.6428H-3.1777e-06Z"
+          transform="translate(151.453 5.35071)"
+          fill="black"
+        />
+        <path
+          d="M0.0520635 0.312577H3.54032L3.90476 1.82337C5.31047 1.04192 7.86158 -1.98731e-07 10.1524 -1.98731e-07C14.3695 -1.98731e-07 17.4413 3.07368 17.4413 10.4193C17.4413 17.6606 14.2133 21.2553 8.79873 21.2553C6.82032 21.2553 4.63365 20.8385 4.63365 20.8385V30.32L-3.1777e-06 30.841V0.312577H0.0520635ZM4.68571 17.1397C5.9873 17.1918 6.71619 17.2439 8.06984 17.2439C10.9333 17.2439 12.8076 15.7331 12.8076 9.6899C12.8076 5.5743 11.1416 4.48028 8.12191 4.48028C6.92445 4.48028 5.83111 4.68866 4.73778 5.05334V17.1397H4.68571Z"
+          transform="translate(89.4976 13.9969)"
+          fill="black"
+        />
+        <path
+          d="M57.5664 1.65123C54.1302 -2.36018 43.1448 1.18236 30.9099 9.62196V11.7579C41.687 4.09975 51.2146 0.55721 53.9219 3.68299C57.3061 7.6423 48.8718 20.5101 35.0229 32.4401C21.174 44.3702 7.22098 50.8822 3.83686 46.9229C2.0667 44.8911 3.52447 40.4108 7.22098 34.9407H5.03431C0.400663 41.8174 -1.31743 47.6001 1.07749 50.3612C5.39876 55.3625 21.5384 48.5379 37.1575 35.0449C52.7245 21.6041 61.8876 6.65247 57.5664 1.65123Z"
+          transform="translate(54.8906)"
+          fill="#EEB111"
+        />
+      </svg>
+    </div>
+    <div class="desktop-message--content">
+      <svg
+        width="210"
+        height="65"
+        viewBox="0 0 210 65"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M12 4H86C86.5522 4 87 4.44775 87 5V54H11V5C11 4.44775 11.4478 4 12 4ZM7 5C7 2.23853 9.23853 0 12 0H86C88.7615 0 91 2.23853 91 5V54V58H98V60C98 62.7615 95.7615 65 93 65H5C2.23853 65 0 62.7615 0 60V58H7V54V5Z"
+          transform="translate(112)"
+          fill="black"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M0 7V5C0 2.23853 2.23853 0 5 0H20C22.7615 0 25 2.23853 25 5V7V40V42C25 44.7615 22.7615 47 20 47H5C2.23853 47 0 44.7615 0 42V40V7ZM22 7V40H3V7H22ZM15 43C15 44.1046 14.1046 45 13 45C11.8954 45 11 44.1046 11 43C11 41.8954 11.8954 41 13 41C14.1046 41 15 41.8954 15 43ZM10.5 3C10.2239 3 10 3.22388 10 3.5C10 3.77612 10.2239 4 10.5 4H14.5C14.7761 4 15 3.77612 15 3.5C15 3.22388 14.7761 3 14.5 3H10.5Z"
+          transform="translate(0 18)"
+          fill="black"
+        />
+        <rect
+          width="5"
+          height="2"
+          transform="translate(9.41418 39.1213) rotate(45)"
+          fill="#EEB111"
+        />
+        <rect
+          width="2"
+          height="6"
+          transform="translate(15.7782 37) rotate(45)"
+          fill="#EEB111"
+        />
+        <rect
+          width="2"
+          height="13.3683"
+          transform="translate(166.019 23.5665) rotate(45)"
+          fill="#EEB111"
+        />
+        <circle
+          cx="7"
+          cy="7"
+          r="6"
+          transform="translate(155 22)"
+          stroke="#EEB111"
+          stroke-width="2"
+        />
+      </svg>
+      <h2>Uh oh!</h2>
+      <p>This website is only available for mobile devices.</p>
+    </div>
+  </div>
+  <article id="smart-video-content">
+    <div class="masthead">
+      <div class="masthead__content">
+        <div class="masthead__content--container" id="masthead-content">
+          <h1>Made for multitasking</h1>
+
+          <p>
+            See how to tackle your to do list with the help of Whirlpool<sup
+              >®</sup
+            >
+            smart cooking features.<sup>1</sup>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- Remote Control -->
+    <section id="remote-control">
+      <div>
+        <div class="containerVideo">
+          <div class="image-block">
+            <div
+              class="image-block__content"
+              onclick="openModal('remoteModal', 'remoteVideo', 'remoteVideoBtnText')"
+            >
+              <picture>
+                <source
+                  srcset="
+                    https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/WHP-App-2021-final.jpg?fit&#x3D;constrain&amp;fmt&#x3D;jpg&amp;hei&#x3D;1600&amp;resMode&#x3D;sharp2&amp;utc&#x3D;2021-02-12T20:28:04Z&amp;wid&#x3D;2200
+                  "
+                />
+                <img
+                  class="image-block-image lazyload"
+                  alt="Remote Control"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+        <div class="rich-text__header">
+          <h3><b>Remote Control</b></h3>
+          <div class="video-link">
+            <svg width="20" height="20" fill="white">
+              <path d="M8 5v14l11-7z"></path>
+              <!-- Ejemplo de ícono Play -->
+            </svg>
+            <span id="remoteVideoBtnText" class="VideoBtnText"
+              ><b>Watch Video</b></span
+            >
+            <span
+              id="remoteVideoBtnWatchAgain"
+              class="VideoBtnText"
+              style="display: none"
+              ><b>Play Again</b></span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for Remote Control -->
+      <div id="remoteModal" class="ModalNew">
+        <div class="modal-content">
+   
+
+          <video id="remoteVideo" controls>
+            <source
+              src="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/videos/RemoteControl-MASTER-VERTICAL-WithSubtitles.mp4"
+              type="video/mp4"
+            />
+          </video>
+          
+          
+          <div class="video-controls">
+   
+               <a onclick="closeModal('remoteModal', 'remoteVideo')" class="closeButton">&times;</a>
+            <div id="loadingIndicator" style="display: none;">Loading...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Voice Control Google -->
+    <section id="voice-control-google">
+      <div>
+        <div class="containerVideo">
+          <div class="image-block">
+            <div
+              class="image-block__content"
+              onclick="openModal('googleModal', 'googleVideo', 'googleVideoBtnText')"
+            >
+              <picture>
+                <source
+                  srcset="
+                    https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/Google-2021.jpg
+                  "
+                />
+                <img
+                  class="image-block-image lazyload"
+                  alt="Voice Control Google"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+        <div class="rich-text__header">
+          <h3><b>Voice Control Google</b></h3>
+          <div class="video-link">
+            <svg width="20" height="20" fill="white">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+            <span id="remoteVideoBtnText" class="VideoBtnText"
+              ><b>Watch Video</b></span
+            >
+            <span
+              id="remoteVideoBtnWatchAgain"
+              class="VideoBtnText"
+              style="display: none"
+              ><b>Play Again</b></span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for Voice Control Google -->
+      <div id="googleModal" class="ModalNew">
+        <div class="modal-content">
+      
+          <video id="googleVideo" controls>
+            <source
+              src="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/videos/VoiceControl-Google-MASTER-VERTICAL-WithSubtitles.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="video-controls">
+   
+               <button onclick="closeModal('googleModal', 'googleVideo')" class="closeButton">&times;</button>
+            <div id="loadingIndicator" style="display: none;">Loading...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Voice Control Alexa -->
+    <section id="voice-control-alexa">
+      <div>
+        <div class="containerVideo">
+          <div class="image-block">
+            <div
+              class="image-block__content"
+              onclick="openModal('alexaModal', 'alexaVideo', 'alexaVideoBtnText')"
+            >
+              <picture>
+                <source
+                  srcset="
+                    https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/Alexa-2021.jpg?fit&#x3D;constrain&amp;fmt&#x3D;jpg&amp;hei&#x3D;1600&amp;resMode&#x3D;sharp2&amp;utc&#x3D;2021-02-12T20:28:04Z&amp;wid&#x3D;2200
+                  "
+                />
+                <img
+                  data-src="https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/Alexa-2021.jpg?fit&#x3D;constrain&amp;fmt&#x3D;jpg&amp;hei&#x3D;1600&amp;resMode&#x3D;sharp2&amp;utc&#x3D;2021-02-12T20:28:04Z&amp;wid&#x3D;2200"
+                  class="image-block-image lazyload"
+                  alt=""
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+        <div class="rich-text__header">
+          <h3><b>Voice Control Alexa</b></h3>
+          <div class="video-link">
+            <svg width="20" height="20" fill="white">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+            <span id="remoteVideoBtnText" class="VideoBtnText"
+              ><b>Watch Video</b></span
+            >
+            <span
+              id="remoteVideoBtnWatchAgain"
+              class="VideoBtnText"
+              style="display: none"
+              ><b>Play Again</b></span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for Voice Control Alexa -->
+      <div id="alexaModal" class="ModalNew">
+        <div class="modal-content">
+    
+          <video id="alexaVideo" controls>
+            <source
+              src="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/videos/VoiceControl-Alexa-MASTER-VERTICAL-WithSubtitles.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="video-controls">
+   
+               <button onclick="closeModal('alexaModal', 'alexaVideo')" class="closeButton">&times;</button>
+            <div id="loadingIndicator" style="display: none;">Loading...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guided Cooking -->
+    <section id="guided-cooking">
+      <div>
+        <div class="containerVideo">
+          <div class="image-block">
+            <div
+              class="image-block__content"
+              onclick="openModal('cookingModal', 'cookingVideo', 'cookingVideoBtnText')"
+            >
+              <picture>
+                <source
+                  srcset="
+                    https://www.whirlpool.com/is/image/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/yummly-guided-cooking.jpg
+                  "
+                />
+                <img
+                  class="image-block-image lazyload"
+                  alt="Guided Cooking"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+        <div class="rich-text__header">
+          <h3><b>Guided Cooking</b></h3>
+          <div class="video-link">
+            <svg width="20" height="20" fill="white">
+              <path d="M8 5v14l11-7z"></path>
+            </svg>
+            <span id="cookingVideoBtnText" class="VideoBtnText">
+              <b>Watch Video</b>
+            </span>
+            <span
+              id="cookingVideoBtnWatchAgain"
+              class="VideoBtnText"
+              style="display: none"
+            >
+              <b>Play Again</b>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for Guided Cooking -->
+      <div id="cookingModal" class="ModalNew">
+        <div class="modal-content">
+    
+          <video id="cookingVideo" controls>
+            <source
+              src="https://www.whirlpool.com/content/dam/business-unit/whirlpool/en-us/marketing-content/site-assets/page-content/whirlpool-aem-2/images/smart-video-qr/videos/GuidedCooking-MASTER-VERTICAL-WithSubtitles-new.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div class="video-controls">
+   
+            <button onclick="closeModal('cookingModal', 'cookingVideo')" class="closeButton">&times;</button>
+            <div id="loadingIndicator" style="display: none;">Loading...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="closing-statement">
+      <div class="rich-text__header text-center headline-center">
+        <h3>Master multitasking</h3>
+        <p>Get more done at once with smart cooking appliances.</p>
+      </div>
+      <div class="rich-text__header text-center headline-center">
+        <p>
+          Ask a sales associate to show you the smart ranges and microwaves
+          available from Whirlpool.
+        </p>
+      </div>
+    </section>
+  </article>
+</div>
+
+<!-- JavaScript for Modal Functionality -->
+<script>
+  function openModal(modalId, videoId, btnTextId) {
+    const modal = document.getElementById(modalId);
+    const video = document.getElementById(videoId);
+    modal.style.display = "flex";
+
+    const videoSeen = localStorage.getItem(`${videoId}Seen`);
+    if (videoSeen === "true") {
+      document.getElementById(btnTextId).innerText = "Play Again";
+    }
+
+    video.play().catch(function (error) {
+      console.error("Error playing the video: ", error);
+      document.getElementById("loadingIndicator").style.display = "block"; // Muestra el indicador de carga
+    });
+
+    video.onended = function () {
+      localStorage.setItem(`${videoId}Seen`, "true");
+      document.getElementById(btnTextId).innerText = "Play Again";
+    };
+
+    video.onwaiting = function() {
+      document.getElementById("loadingIndicator").style.display = "block"; // Muestra el indicador de carga
+    };
+
+    video.onplaying = function() {
+      document.getElementById("loadingIndicator").style.display = "none"; // Oculta el indicador de carga
+    };
+  }
+
+  function closeModal(modalId, videoId) {
+    const modal = document.getElementById(modalId);
+    const video = document.getElementById(videoId);
+    modal.style.display = "none";
+    video.pause();
+    video.currentTime = 0;
+  }
+
+  function togglePlay(videoId) {
+    const video = document.getElementById(videoId);
+    const playPauseBtn = document.getElementById('playPauseBtn');
+
+    if (video.paused) {
+      video.play();
+      playPauseBtn.innerText = "Pause";
+    } else {
+      video.pause();
+      playPauseBtn.innerText = "Play";
+    }
+  }
+
+  function stopVideo(videoId) {
+    const video = document.getElementById(videoId);
+    video.pause();
+    video.currentTime = 0;
+    document.getElementById('playPauseBtn').innerText = "Play"; // Resetear el botón
+  }
+
+  window.onload = function () {
+    const videoIds = [
+      "remoteVideo",
+      "googleVideo",
+      "alexaVideo",
+      "cookingVideo",
+    ];
+    videoIds.forEach((id) => {
+      const videoSeen = localStorage.getItem(`${id}Seen`);
+      if (videoSeen === "true") {
+        document.getElementById(`${id}BtnText`).innerText = "Play Again";
+      }
+    });
+
+    // Agregar eventos a todos los botones de cerrar
+    const closeButtons = document.querySelectorAll('.closeButton');
+    closeButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        closeModal(button.closest('.ModalNew').id, button.dataset.videoId);
+      });
+      button.addEventListener('touchstart', function() {
+        closeModal(button.closest('.ModalNew').id, button.dataset.videoId);
+      });
+    });
+  };
+</script>
+
+</body>
+</html>
